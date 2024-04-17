@@ -1,0 +1,145 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.playlist {
+    width: 100%;
+    max-width: 200px;
+}
+
+.playlist h2 {
+    color: #d1d1d1;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.playlist ul {
+    list-style: none;
+    padding: 0;
+}
+
+.playlist li {
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.playlist li:hover {
+    color: #457c5a;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.turntable {
+    width: 150px;
+    height: 150px;
+    background-color: #457c5a;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    animation: spin 5s linear infinite;
+    background-image: url('../Music/images/lp.jpg');
+    background-size: cover;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.lyrics {
+    width: 100%;
+    max-width: 300px;
+    height: 100px;
+    background-color: #457c5a;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.lyrics p {
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+audio {
+    width: 100%;
+    max-width: 300px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ff9f1a;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #457c5a;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .playlist {
+        max-width: 100%;
+    }
+
+    .main {
+        max-width: 100%;
+    }
+
+    .lyrics {
+        max-width: 100%;
+    }
+
+    audio {
+        max-width: 100%;
+    }
+
+    .turntable {
+        width: 100px;
+        height: 100px;
+    }
+
+    .lyrics p {
+        font-size: 14px;
+    }
+}

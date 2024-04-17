@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Front-end 개발자 유진</title>
+    </head>
+    <style>
+    /* @font-face 규칙 추가 */
+        @font-face {
+            font-family: 'KCC-Hanbit';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/KCC-Hanbit.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+        
+        body{
+            margin:0;
+            width: 100vw;
+            height: 100vh;
+        }
+        #top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #top h2 { /* Yoo.com*/
+            margin-left:20px;
+            font-family:'KCC-Hanbit', sans-serif;
+        }
+        ul {
+            list-style-type:none;
+            padding: 20px;
+        }
+        li {
+            font-size: 20px;
+            display: inline-block;
+            margin-right:20px;
+            font-family:'KCC-Hanbit', sans-serif;
+        }
+        #main {
+            margin-top: 200px;
+            margin-left: 30px;
+        }
+        /* 타이핑 효과를 위한 스타일*/
+        .typing-container {
+            position: relative;
+            display: inline-block;
+        }
+        .typing {
+            display: inline-block;
+            position: relative;
+        }
+        .cursor { 
+            display: inline-block;
+            width: 4px;
+            height: 1em;
+            background-color: black;
+            position: relative;
+            animation: blink 0.6s infinite;
+            margin-left: 1px;
+        }
+    </style>
+     <script>
+        var frontEndText = "Front-end";
+        var nameTexts = ["김유진", "KimYooJin"]; // 번갈아 가면서 보여줄 이름들
+        var currentNameIndex = 0; // 현재 보여주는 이름 인덱스
+        var typingSpeed = 100; // 타이핑 속도 (밀리초)
+        var delayTime = 2000; // 텍스트 간 딜레이 시간 (밀리초)
+
+        // 타이핑 효과 함수
+        function typeWriterFrontEnd() {
+            var span = document.getElementById("typingFrontEnd");
+            span.innerHTML = ""; // 이전에 쓰인 텍스트 초기화
+            var index = 0;
+            var typingInterval = setInterval(function() {
+                if (index < frontEndText.length) {
+                    span.innerHTML += frontEndText.charAt(index);
+                    index++;
+                } else {
+                    clearInterval(typingInterval); // 타이핑이 끝나면 setInterval 멈춤
+                }
+            }, typingSpeed);
+        }
+
+        function typeWriterName() {
+            var span = document.getElementById("typingName");
+            span.innerHTML = ""; // 이전에 쓰인 텍스트 초기화
+            var nameText = nameTexts[currentNameIndex];
+            var index = 0;
+            var typingInterval = setInterval(function() {
+                if (index < nameText.length) {
+                    span.innerHTML += nameText.charAt(index);
+                    index++;
+                } else {
+                    clearInterval(typingInterval); // 타이핑이 끝나면 setInterval 멈춤
+                }
+            }, typingSpeed);
+            currentNameIndex = (currentNameIndex + 1) % nameTexts.length; // 다음 이름 인덱스 선택
+        }
+
+        // 페이지가 로드되면 타이핑 효과 시작
+        window.onload = function() {
+            setInterval(function() {
+                typeWriterFrontEnd();
+                setTimeout(typeWriterName, delayTime);
+            }, typingSpeed * frontEndText.length + delayTime); // 전체 딜레이 시간 후에 반복
+        };
+    </script>
+    <body>
+        <div id="top">
+            <h2>Yoo-Jin.com</h2>
+            <ul>
+                <li>About Me</li>
+                <li>Skill</li>
+                <li>Project</li>
+            </ul>
+        </div>
+        <div id="main">
+            <h1>
+                안녕하세요🙋‍♀️<br>
+                <span class="typing" id="typingFrontEnd"></span><!-- Front-end 부분 타이핑 효과를 적용할 부분 -->
+                <span class="cursor"></span>를 좋아하는<br><!-- front-end 커서 부분 -->
+                개발자 <span class="typing" id="typingName"></span><!-- 이름 부분 타이핑 효과를 적용할 부분 -->
+                <span class="cursor"></span>입니다.<!-- 이름 커서 부분 -->
+            </h1>
+        </div>
+        <div id="about">
+
+        </div>
+        <div id="skill">
+
+        </div>
+        <div id="project">
+
+        </div>
+    </body>
+</html>
